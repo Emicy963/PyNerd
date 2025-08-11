@@ -653,6 +653,36 @@
             
             counterObserver.observe(studentCounter);
         }
+
+        // WhatsApp float button animation
+        const whatsappButton = document.querySelector('.whatsapp-float');
+        if (whatsappButton) {
+            setInterval(() => {
+                whatsappButton.style.animation = 'none';
+                setTimeout(() => {
+                    whatsappButton.style.animation = 'bounce-soft 2s infinite';
+                }, 10);
+            }, 5000);
+        }
+
+        // Enhanced hover effects
+        document.querySelectorAll('.hover-glow').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.02) translateY(-2px)';
+                this.style.boxShadow = '0 0 30px rgba(74, 222, 128, 0.3)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1) translateY(0)';
+                this.style.boxShadow = 'none';
+            });
+        });
+
+        // Smooth transitions between sections
+        const sections = document.querySelectorAll('section');
+        sections.forEach(section => {
+            section.classList.add('section-transition');
+        });
     </script>
 </body>
 </html>
