@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PyNerd Development | Soluções em Software</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'mono': ['Monaco', 'Menlo', 'Ubuntu Mono', 'monospace'],
+                        'sans': ['Inter', 'system-ui', 'sans-serif']
+                    },
+                    animation: {
+                        'pulse-glow': 'pulseGlow 2s infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'bounce-soft': 'bounceSoft 2s infinite'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Monaco&display=swap');
+        
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7); }
+            70% { box-shadow: 0 0 0 12px rgba(74, 222, 128, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes bounceSoft {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        .gradient-text { 
+            background: linear-gradient(to right, #4ade80, #22d3ee);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .glass { 
+            backdrop-filter: blur(10px); 
+            background: rgba(15, 23, 42, 0.8); 
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            animation: bounce-soft 2s infinite;
+        }
+
+        .service-card {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .service-card:hover {
+            border-color: rgba(74, 222, 128, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .tech-icon {
+            transition: all 0.3s ease;
+        }
+
+        .tech-icon:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-white font-sans antialiased">
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/244928301450" target="_blank" class="whatsapp-float">
+        <div class="w-16 h-16 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all">
+            <i class="fab fa-whatsapp text-2xl text-white"></i>
+        </div>
+    </a>
+
+    <!-- Navbar -->
+    <nav class="glass fixed w-full top-0 z-50 border-b border-green-500/20">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-code text-2xl text-green-400"></i>
+                <span class="font-mono font-bold text-xl gradient-text">PyNerd Development</span>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#servicos" class="hover:text-green-400 transition-colors">Serviços</a>
+                <a href="#portfolio" class="hover:text-green-400 transition-colors">Portfólio</a>
+                <a href="#tecnologias" class="hover:text-green-400 transition-colors">Tecnologias</a>
+                <a href="#contato" class="hover:text-green-400 transition-colors">Contato</a>
+            </div>
+            <a href="pynerd.html" class="px-6 py-2 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 rounded-lg font-semibold transition-all transform hover:-translate-y-0.5">
+                Academy
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center pt-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"></div>
+        <div class="absolute top-20 right-10 w-72 h-72 bg-green-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-float"></div>
+        <div class="absolute bottom-20 left-10 w-72 h-72 bg-cyan-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-float" style="animation-delay: -1s;"></div>
+        
+        <div class="container mx-auto px-4 py-16 relative z-10">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8 animate-slide-up">
+                    <h1 class="text-5xl md:text-6xl font-bold leading-tight">
+                        <span class="gradient-text">Desenvolvemos</span><br>
+                        suas ideias em código
+                    </h1>
+                    <p class="text-xl text-gray-300 leading-relaxed">
+                        Soluções sob medida em Python, Django, FastAPI e tecnologias modernas para alavancar seu negócio.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#contato" class="px-8 py-4 bg-gradient-to-r from-green-500 to-cyan-500 rounded-lg font-bold text-center transition-all transform hover:-translate-y-1 animate-pulse-glow">
+                            Solicitar Orçamento <i class="fas fa-rocket ml-2"></i>
+                        </a>
+                        <a href="#portfolio" class="px-8 py-4 bg-slate-800 border border-green-500/30 rounded-lg font-bold text-center hover:bg-slate-700 transition-all">
+                            Ver Projetos
+                        </a>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="flex -space-x-2">
+                            <div class="w-8 h-8 bg-gradient-to-r from-green-400 to-cyan-400 rounded-full border-2 border-slate-800"></div>
+                            <div class="w-8 h-8 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full border-2 border-slate-800"></div>
+                            <div class="w-8 h-8 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full border-2 border-slate-800"></div>
+                        </div>
+                        <p class="text-gray-300"><span class="text-green-400 font-semibold">+50 projetos</span> entregues</p>
+                    </div>
+                </div>
+                
+                <!-- Code Preview -->
+                <div class="glass rounded-xl overflow-hidden shadow-2xl animate-slide-up" style="animation-delay: 0.2s;">
+                    <div class="flex items-center px-4 py-3 bg-slate-800 border-b border-green-500/20">
+                        <div class="flex space-x-2">
+                            <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                            <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                            <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                        </div>
+                        <div class="ml-4 text-sm text-gray-400 font-mono">pynerd-dev.py</div>
+                    </div>
+                    <div class="p-6 font-mono text-sm space-y-2">
+                        <div class="text-gray-500"># PyNerd Development Solutions</div>
+                        <div><span class="text-purple-400">from</span> <span class="text-cyan-400">pynerd</span> <span class="text-purple-400">import</span> <span class="text-yellow-400">solutions</span></div>
+                        <div><span class="text-purple-400">import</span> <span class="text-cyan-400">success</span></div>
+                        <div class="mt-3"><span class="text-purple-400">class</span> <span class="text-cyan-400">YourProject</span><span class="text-yellow-300">:</span></div>
+                        <div class="ml-4"><span class="text-purple-400">def</span> <span class="text-cyan-400">__init__</span><span class="text-yellow-300">(</span><span class="text-orange-400">self</span><span class="text-yellow-300">):</span></div>
+                        <div class="ml-8"><span class="text-orange-400">self</span><span class="text-white">.</span><span class="text-cyan-400">quality</span> = <span class="text-orange-300">"premium"</span></div>
+                        <div class="ml-8"><span class="text-orange-400">self</span><span class="text-white">.</span><span class="text-cyan-400">delivery</span> = <span class="text-orange-300">"on_time"</span></div>
+                        <div class="mt-3"><span class="text-gray-500"># Resultado garantido ✅</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicos" class="py-24 bg-slate-800 animate-on-scroll">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 gradient-text">Nossos Serviços</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">Soluções completas em desenvolvimento de software para empresas angolanas</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="service-card bg-slate-900/50 p-6 rounded-xl">
+                    <div class="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-globe text-2xl text-green-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-green-400">Desenvolvimento Web</h3>
+                    <p class="text-gray-300 mb-4">Sites responsivos, sistemas web e e-commerce com Django e FastAPI</p>
+                    <div class="text-sm text-gray-400">
+                        <span class="inline-block bg-slate-700 px-2 py-1 rounded mr-2 mb-2">Django</span>
+                        <span class="inline-block bg-slate-700 px-2 py-1 rounded mr-2 mb-2">FastAPI</span>
+                        <span class="inline-block bg-slate-700 px-2 py-1 rounded mr-2 mb-2">React</span>
+                    </div>
+                    <div class="mt-4 text-green-400 font-semibold">A partir de KZ 80.000</div>
+                </div>
+
+                <div class="service-card bg-slate-900/50 p-6 rounded-xl">
+                    <div class="w-16 h-16 bg-cyan-500/20 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-mobile-alt text-2xl text-cyan-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-cyan-400">Apps Mobile</h3>
+                    <p class="text-gray-300 mb-4">Aplicações móveis nativas e híbridas para Android e iOS</p>
+                    <div class="text-sm text-gray-400">
+                        <span class="inline-block bg-slate-700 px-2 py-1 rounded mr-2 mb-2">React Native</span>
+                        <span class="inline-block bg-slate-700 px-2 py-1 rounded mr-2 mb-2">Flutter</span>
+                        <span class="inline-block bg-slate-700 px-2 py-1 rounded mr-2 mb-2">Kivy</span>
+                    </div>
+                    <div class="mt-4 text-cyan-400 font-semibold">A partir de KZ 200.000</div>
+                </div>
+
+                <div class="service-card bg-slate-900/50 p-6 rounded-xl">
+                    <div class="w-16 h-16 bg-purple-500/20 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-robot text-2xl text-purple-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-purple-400">Automação & IA</h3>
+                    <p class="text-gray-300 mb-4">Bots, automação de processos e soluções com inteligência artificial</p>
+                    <div class="text-sm text-gray-400">
+                        <span class="inline-block bg-slate-700 px-2 py-1 rounded mr-2 mb-2">Python</span>
+                        <span class="inline-block bg-slate-700 px-2 py-1 rounded mr-2 mb-2">Selenium</span>
+                        <span class="inline-block bg-slate-700 px-2 py-1 rounded mr-2 mb-2">OpenAI</span>
+                    </div>
+                    <div class="mt-4 text-purple-400 font-semibold">A partir de KZ 150.000</div>
+                </div>
+
+                <div class="service-card bg-slate-900/50 p-6 rounded-xl">
+                    <div class="w-16 h-16 bg-yellow-500/20 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-chart-line text-2xl text-yellow-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-yellow-400">Análise de Dados</h3>
+                    <p class="text-gray-300 mb-4">Dashboards, relatórios e análises preditivas para seu negócio</p>
+                    <div class="text-sm text-gray-400">
+                        <span class="inline-block bg-slate-700 px-2 py-1 rounded mr-2 mb-2">Pandas</span>
+                        <span class="inline-block bg-slate-700 px-2 py-1 rounded mr-2 mb-2">Plotly</span>
+                        <span class="inline-block bg-slate-700 px-2 py-1 rounded mr-2 mb-2">Power BI</span>
+                    </div>
+                    <div class="mt-4 text-yellow-400 font-semibold">A partir de KZ 120.000</div>
+                </div>
+
+                <div class="service-card bg-slate-900/50 p-6 rounded-xl">
+                    <div class="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-database text-2xl text-red-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-red-400">Sistemas ERP</h3>
+                    <p class="text-gray-300 mb-4">Gestão empresarial, CRM e sistemas integrados sob medida</p>
+                    <div class="text-sm text-gray-400">
+                        <span class="inline-block bg-slate-700 px-2 py-1 rounded mr-2 mb-2">Django</span>
+                        <span class="inline-block bg-slate-700 px-2 py-1 rounded mr-2 mb-2">PostgreSQL</span>
+                        <span class="inline-block bg-slate-700 px-2 py-1 rounded mr-2 mb-2">Redis</span>
+                    </div>
+                    <div class="mt-4 text-red-400 font-semibold">A partir de KZ 400.000</div>
+                </div>
+
+                <div class="service-card bg-slate-900/50 p-6 rounded-xl">
+                    <div class="w-16 h-16 bg-orange-500/20 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-code text-2xl text-orange-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-orange-400">APIs & Integrações</h3>
+                    <p class="text-gray-300 mb-4">APIs REST, microserviços e integrações com sistemas terceiros</p>
+                    <div class="text-sm text-gray-400">
+                        <span class="inline-block bg-slate-700 px-2 py-1 rounded mr-2 mb-2">FastAPI</span>
+                        <span class="inline-block bg-slate-700 px-2 py-1 rounded mr-2 mb-2">Flask</span>
+                        <span class="inline-block bg-slate-700 px-2 py-1 rounded mr-2 mb-2">Docker</span>
+                    </div>
+                    <div class="mt-4 text-orange-400 font-semibold">A partir de KZ 100.000</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies Section -->
+    <section id="tecnologias" class="py-24 bg-slate-900 animate-on-scroll">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 gradient-text">Tecnologias que Dominamos</h2>
+                <p class="text-xl text-gray-300">Stack moderno para soluções robustas e escaláveis</p>
+            </div>
+            
+            <div class="grid grid-cols-3 md:grid-cols-6 gap-8 items-center justify-center">
+                <div class="tech-icon text-center p-4 bg-slate-800/50 rounded-xl">
+                    <i class="fab fa-python text-4xl text-yellow-400 mb-2"></i>
+                    <p class="text-sm text-gray-300">Python</p>
+                </div>
+                <div class="tech-icon text-center p-4 bg-slate-800/50 rounded-xl">
+                    <i class="fab fa-js-square text-4xl text-yellow-300 mb-2"></i>
+                    <p class="text-sm text-gray-300">JavaScript</p>
+                </div>
+                <div class="tech-icon text-center p-4 bg-slate-800/50 rounded-xl">
+                    <i class="fab fa-react text-4xl text-cyan-400 mb-2"></i>
+                    <p class="text-sm text-gray-300">React</p>
+                </div>
+                <div class="tech-icon text-center p-4 bg-slate-800/50 rounded-xl">
+                    <i class="fab fa-node-js text-4xl text-green-400 mb-2"></i>
+                    <p class="text-sm text-gray-300">Node.js</p>
+                </div>
+                <div class="tech-icon text-center p-4 bg-slate-800/50 rounded-xl">
+                    <i class="fas fa-database text-4xl text-blue-400 mb-2"></i>
+                    <p class="text-sm text-gray-300">PostgreSQL</p>
+                </div>
+                <div class="tech-icon text-center p-4 bg-slate-800/50 rounded-xl">
+                    <i class="fab fa-docker text-4xl text-blue-500 mb-2"></i>
+                    <p class="text-sm text-gray-300">Docker</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contato" class="py-24 bg-slate-800 animate-on-scroll">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto glass rounded-2xl p-8 md:p-12 border border-green-500/30">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <div class="inline-block bg-green-500/20 text-green-400 px-4 py-1 rounded-full text-sm font-mono mb-4">VAMOS CONVERSAR</div>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 gradient-text">Pronto para começar seu projeto?</h2>
+                        <p class="text-gray-300 mb-6">Consultoria gratuita de 30 minutos para entender suas necessidades</p>
+                        
+                        <div class="space-y-4 mb-6">
+                            <div class="flex items-center">
+                                <i class="fab fa-whatsapp text-green-400 mr-3 text-xl"></i>
+                                <span>+244 928 301 450</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-envelope text-green-400 mr-3"></i>
+                                <span>dev@pynerd.com</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-map-marker-alt text-green-400 mr-3"></i>
+                                <span>Luanda, Angola</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="bg-slate-900 p-6 rounded-xl border border-green-500/20">
+                            <h3 class="text-xl font-bold mb-4">Solicitar Orçamento</h3>
+                            <form id="contactForm" class="space-y-4">
+                                <input type="text" placeholder="Nome da empresa" class="w-full bg-slate-700 border border-slate-600 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-green-500/50" required>
+                                <input type="email" placeholder="E-mail" class="w-full bg-slate-700 border border-slate-600 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-green-500/50" required>
+                                <input type="tel" placeholder="WhatsApp" class="w-full bg-slate-700 border border-slate-600 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-green-500/50" required>
+                                <select class="w-full bg-slate-700 border border-slate-600 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-green-500/50" required>
+                                    <option value="">Tipo de projeto</option>
+                                    <option value="web">Desenvolvimento Web</option>
+                                    <option value="mobile">App Mobile</option>
+                                    <option value="automation">Automação & IA</option>
+                                    <option value="data">Análise de Dados</option>
+                                    <option value="erp">Sistema ERP</option>
+                                    <option value="api">APIs & Integrações</option>
+                                </select>
+                                <textarea placeholder="Descreva seu projeto..." rows="3" class="w-full bg-slate-700 border border-slate-600 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-green-500/50"></textarea>
+                                <button type="submit" class="w-full py-4 bg-gradient-to-r from-green-500 to-cyan-500 hover:from-green-600 hover:to-cyan-600 font-bold rounded-lg transition-all transform hover:-translate-y-1">
+                                    SOLICITAR ORÇAMENTO
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-green-500/20 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-code text-2xl text-green-400"></i>
+                        <span class="font-mono font-bold text-xl gradient-text">PyNerd Development</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Desenvolvendo soluções que transformam negócios.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-green-400 transition-colors"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-green-400 transition-colors"><i class="fab fa-github"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-green-400 transition-colors"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-bold mb-4">Serviços</h3>
+                    <div class="space-y-2">
+                        <a href="#servicos" class="block text-gray-400 hover:text-green-400 transition-colors">Desenvolvimento Web</a>
+                        <a href="#servicos" class="block text-gray-400 hover:text-green-400 transition-colors">Apps Mobile</a>
+                        <a href="#servicos" class="block text-gray-400 hover:text-green-400 transition-colors">Automação & IA</a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-bold mb-4">Contato</h3>
+                    <div class="space-y-2 text-gray-400">
+                        <p><i class="fas fa-envelope text-green-400 mr-2"></i> dev@pynerd.com</p>
+                        <p><i class="fab fa-whatsapp text-green-400 mr-2"></i> +244 928 301 450</p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-slate-700 pt-6 text-center text-gray-500">
+                <p>© 2025 PyNerd Development. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll animations
+        const observeElements = document.querySelectorAll('.animate-on-scroll');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        observeElements.forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const button = e.target.querySelector('button[type="submit"]');
+            const originalText = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Enviando...';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                alert('Obrigado! Sua solicitação foi enviada. Entraremos em contato via WhatsApp em breve!');
+                button.innerHTML = originalText;
+                button.disabled = false;
+                e.target.reset();
+            }, 2000);
+        });
+
+        // Mobile menu functionality
+        const createMobileMenu = () => {
+            const navbar = document.querySelector('nav .container');
+            const mobileToggle = document.createElement('button');
+            mobileToggle.className = 'md:hidden text-white p-2';
+            mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            
+            const navLinks = document.querySelector('nav .hidden.md\\:flex');
+            
+            mobileToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('hidden');
+                navLinks.classList.toggle('flex');
+                navLinks.classList.toggle('flex-col');
+                navLinks.classList.toggle('absolute');
+                navLinks.classList.toggle('top-full');
+                navLinks.classList.toggle('left-0');
+                navLinks.classList.toggle('w-full');
+                navLinks.classList.toggle('bg-slate-900');
+                navLinks.classList.toggle('p-4');
+                navLinks.classList.toggle('space-y-4');
+            });
+            
+            navbar.appendChild(mobileToggle);
+        };
+
+        // Parallax effects
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.animate-float');
+            
+            parallaxElements.forEach((el, index) => {
+                const speed = 0.5 + (index * 0.1);
+                el.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // Service cards hover effects
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Tech icons animation
+        document.querySelectorAll('.tech-icon').forEach(icon => {
+            icon.addEventListener('mouseenter', function() {
+                const iconElement = this.querySelector('i');
+                iconElement.style.transform = 'scale(1.2) rotate(10deg)';
+                iconElement.style.transition = 'all 0.3s ease';
+            });
+            
+            icon.addEventListener('mouseleave', function() {
+                const iconElement = this.querySelector('i');
+                iconElement.style.transform = 'scale(1) rotate(0deg)';
+            });
+        });
+
+        // Initialize mobile menu
+        createMobileMenu();
+
+        // Add loading animation to page
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+        });
+
+        // WhatsApp float button pulse effect
+        const whatsappButton = document.querySelector('.whatsapp-float');
+        setInterval(() => {
+            whatsappButton.style.animation = 'none';
+            setTimeout(() => {
+                whatsappButton.style.animation = 'bounceSoft 2s infinite';
+            }, 10);
+        }, 5000);
+
+        // Counter animation for projects
+        function animateCounter(element, target, duration = 2000) {
+            let start = 0;
+            const increment = target / (duration / 16);
+            
+            function updateCounter() {
+                start += increment;
+                if (start < target) {
+                    element.textContent = `+${Math.floor(start)} projetos`;
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = `+${target} projetos`;
+                }
+            }
+            
+            updateCounter();
+        }
+
+        // Trigger counter animation
+        const projectCounter = document.querySelector('.text-green-400.font-semibold');
+        if (projectCounter) {
+            const counterObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounter(projectCounter, 50);
+                        counterObserver.unobserve(entry.target);
+                    }
+                });
+            });
+            
+            counterObserver.observe(projectCounter);
+        }
+    </script>
+</body>
+</html>
