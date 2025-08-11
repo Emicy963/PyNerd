@@ -7,22 +7,22 @@
       "use": "@vercel/static"
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/",
-      "dest": "/index.html"
+      "source": "/",
+      "destination": "/index.html"
     },
     {
-      "src": "/academy",
-      "dest": "/index.html"
+      "source": "/academy",
+      "destination": "/index.html"
     },
     {
-      "src": "/development",
-      "dest": "/development.html"
+      "source": "/development",
+      "destination": "/development.html"
     },
     {
-      "src": "/dev",
-      "dest": "/development.html"
+      "source": "/dev",
+      "destination": "/development.html"
     }
   ],
   "headers": [
