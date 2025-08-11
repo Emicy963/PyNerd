@@ -241,6 +241,47 @@
         </div>
     </section>
 
+    <!-- Parteners/Tecnology Section -->
+    <section class="py-16 bg-slate-800 animate-on-scroll">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-2xl font-bold mb-8 gradient-text">Tecnologias que Você Vai Dominar</h2>
+            <div class="grid grid-cols-4 md:grid-cols-8 gap-6 items-center justify-center opacity-70">
+                <div class="text-center">
+                    <i class="fab fa-python text-3xl text-yellow-400 mb-2"></i>
+                    <p class="text-xs text-gray-400">Python</p>
+                </div>
+                <div class="text-center">
+                    <i class="fas fa-database text-3xl text-blue-400 mb-2"></i>
+                    <p class="text-xs text-gray-400">PostgreSQL</p>
+                </div>
+                <div class="text-center">
+                    <i class="fab fa-git-alt text-3xl text-orange-400 mb-2"></i>
+                    <p class="text-xs text-gray-400">Git</p>
+                </div>
+                <div class="text-center">
+                    <i class="fab fa-docker text-3xl text-blue-500 mb-2"></i>
+                    <p class="text-xs text-gray-400">Docker</p>
+                </div>
+                <div class="text-center">
+                    <i class="fab fa-aws text-3xl text-yellow-600 mb-2"></i>
+                    <p class="text-xs text-gray-400">AWS</p>
+                </div>
+                <div class="text-center">
+                    <i class="fab fa-js-square text-3xl text-yellow-300 mb-2"></i>
+                    <p class="text-xs text-gray-400">JavaScript</p>
+                </div>
+                <div class="text-center">
+                    <i class="fab fa-react text-3xl text-cyan-400 mb-2"></i>
+                    <p class="text-xs text-gray-400">React</p>
+                </div>
+                <div class="text-center">
+                    <i class="fas fa-chart-bar text-3xl text-green-400 mb-2"></i>
+                    <p class="text-xs text-gray-400">Data Science</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Content Section -->
     <section id="conteudo" class="py-24 bg-slate-900 relative animate-on-scroll">
         <div class="container mx-auto px-4">
@@ -448,6 +489,21 @@
         </div>
     </section>
 
+    <div id="successModal" class="fixed inset-0 bg-black/50 z-50 hidden items-center justify-center">
+        <div class="bg-slate-800 p-8 rounded-xl border border-green-500/30 max-w-md mx-4">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-check text-2xl text-green-400"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4 text-green-400">Inscrição Enviada!</h3>
+                <p class="text-gray-300 mb-6">Obrigado pelo interesse! Entraremos em contato via WhatsApp em breve com os detalhes do pagamento.</p>
+                <button onclick="closeModal()" class="px-6 py-3 bg-gradient-to-r from-green-500 to-cyan-500 rounded-lg font-semibold">
+                    Perfeito!
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Float Booton -->
     <a href="https://wa.me/244928301450" target="_blank" class="whatsapp-float">
         <div class="w-16 h-16 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all">
@@ -522,7 +578,18 @@
             });
         });
 
-        // Form submission handler
+        // Add Modal Function
+        function showModal() {
+            document.getElementById('successModal').classList.remove('hidden');
+            document.getElementById('successModal').classList.add('flex');
+        }
+
+        function closeModal() {
+            document.getElementById('successModal').classList.add('hidden');
+            document.getElementById('successModal').classList.remove('flex');
+        }
+
+        // Chance the form handler to modal
         document.getElementById('inscricaoForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -530,20 +597,18 @@
             const email = document.getElementById('email').value;
             const whatsapp = document.getElementById('whatsapp').value;
             
-            // Simple validation
             if (!nome || !email || !whatsapp) {
                 alert('Por favor, preencha todos os campos!');
                 return;
             }
             
-            // Simulate form submission
             const button = e.target.querySelector('button[type="submit"]');
             const originalText = button.innerHTML;
             button.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Processando...';
             button.disabled = true;
             
             setTimeout(() => {
-                alert(`Obrigado, ${nome}! Sua inscrição foi recebida. Em breve entraremos em contato via WhatsApp!`);
+                showModal(); // Usar modal em vez de alert
                 button.innerHTML = originalText;
                 button.disabled = false;
                 e.target.reset();
