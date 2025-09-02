@@ -47,6 +47,18 @@
             50% { transform: translateY(-5px); }
         }
 
+        .gradient-text {
+            background: linear-gradient(to-right, #4ade80, #22d3ee);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .glass {
+            backdrop-filter: blur(10px);
+            background: rgba(15, 23, 42, 0.8);
+        }
+
         .whatsapp-float {
             position: fixed;
             bottom: 30px;
@@ -58,32 +70,34 @@
 </head>
 <body>
     <!-- WhatsApp Float Button -->
-     <a href="https://wa.me/244928301450" target="_blank" class="whatsapp-float">
+    <a href="https://wa.me/244928301450" target="_blank" class="whatsapp-float">
         <div class="w-16 h-16 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all">
             <i class="fab fa-whatsapp text-2xl text-white"></i>
         </div>
-     </a>
+    </a>
 
-     <!-- Navbar -->
-      <nav class="glass fixed w-full top-0 z-50 border-b border-green-500/20">
-        <div>
-            <i class="fas fa-code-branch"></i>
-            <span>PyNerd</span>
+    <!-- Navbar -->
+    <nav class="glass fixed w-full top-0 z-50 border-b border-green-500/20">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-code-branch text-2xl text-green-400"></i>
+                <span class="font-mono font-bold text-xl gradient-text">PyNerd</span>
+            </div>
+            <div>
+                <a href="#">Sobre</a>
+                <a href="#">Ecossistema</a>
+                <a href="#">PySensei</a>
+                <a href="#">Contato</a>
+            </div>
+            <div>
+                <a href="academy.html">
+                    Academy
+                </a>
+                <a href="development.html">
+                    Development
+                </a>
+            </div>
         </div>
-        <div>
-            <a href="#">Sobre</a>
-            <a href="#">Ecossistema</a>
-            <a href="#">PySensei</a>
-            <a href="#">Contato</a>
-        </div>
-        <div>
-            <a href="academy.html">
-                Academy
-            </a>
-            <a href="development.html">
-                Development
-            </a>
-        </div>
-      </nav>
+    </nav>
 </body>
 </html>
