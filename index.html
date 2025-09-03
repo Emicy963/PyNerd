@@ -191,6 +191,22 @@
                 
             updateCounter();
         }
+
+        // Trigger counters animation
+        const counters = document.querySelectorAll("[data-count]")
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = parseInt(entry.target.dataset.count);
+                    animateCounter(entry.target, target);
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        counters.forEach(counter => {
+            counterObserver.observe(counter);
+        });
     </script>
 </body>
 </html>
