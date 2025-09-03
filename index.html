@@ -172,5 +172,25 @@
             </div>
         </div>
      </section>
+
+     <script>
+        // Counter animation
+        function animateCounter(element, target, duration = 2000) {
+            let start = 0;
+            const increment = target / (duration / 16);
+                
+            function updateCounter() {
+                start += increment;
+                if (start < target) {
+                    element.textContent = Math.floor(start);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = target;
+                }
+            }
+                
+            updateCounter();
+        }
+    </script>
 </body>
 </html>
