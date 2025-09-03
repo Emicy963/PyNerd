@@ -581,6 +581,67 @@
         counters.forEach(counter => {
             counterObserver.observe(counter);
         });
+
+        // Mobile menu
+        const createMobileMenu = () => {
+            const navbar = document.querySelector('nav .container');
+            const mobileToggle = document.createElement('button');
+            mobileToggle.className = 'md:hidden text-white p-2';
+            mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            
+            const navLinks = document.querySelector('nav .hidden.md\\:flex');
+            
+            mobileToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('hidden');
+                navLinks.classList.toggle('flex');
+                navLinks.classList.toggle('flex-col');
+                navLinks.classList.toggle('absolute');
+                navLinks.classList.toggle('top-full');
+                navLinks.classList.toggle('left-0');
+                navLinks.classList.toggle('w-full');
+                navLinks.classList.toggle('bg-slate-900');
+                navLinks.classList.toggle('p-4');
+                navLinks.classList.toggle('space-y-4');
+            });
+            
+            navbar.appendChild(mobileToggle);
+        };
+
+        // Enhanced hover effects
+        document.querySelectorAll('.ecosystem-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.03)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Social links hover effects
+        document.querySelectorAll('.social-link').forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-4px) scale(1.15)';
+            });
+            
+            link.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Parallax effects
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.floating-element');
+            
+            parallaxElements.forEach((el, index) => {
+                const speed = 0.3 + (index * 0.1);
+                el.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // Initialize mobile menu
+        createMobileMenu();
     </script>
 </body>
 </html>
