@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PyNerd | Domine Python e Entre no Universo Tech</title>
+    <title>PyNerd | Ecossistema Completo de Tecnologia</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script>
@@ -11,13 +11,14 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        'mono': ['Monaco', 'Menlo', 'Ubuntu Mono', 'monospace'],
-                        'sans': ['Inter', 'system-ui', 'sans-serif']
+                        "mono": ["Monaco", "Menlo", "Ubuntu Mono", "monospace"],
+                        "sans": ["Inter", "system-ui", "sans-serif"]
                     },
                     animation: {
-                        'pulse-glow': 'pulseGlow 2s infinite',
-                        'float': 'float 3s ease-in-out infinite',
-                        'typing': 'typing 3.5s steps(40, end), blink 1s infinite'
+                        "pulse-glow": "pulseGlow 2s infinite",
+                        "float": "float 3s ease-in-out infinite",
+                        "slide-up": "slideUp 0.6s ease-out",
+                        "bounce-soft": "bounceSoft 2s infinite"
                     }
                 }
             }
@@ -37,14 +38,14 @@
             50% { transform: translateY(-10px); }
         }
         
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
+        @keyframes bounceSoft {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
         }
         
         .gradient-text { 
@@ -59,17 +60,6 @@
             background: rgba(15, 23, 42, 0.8); 
         }
         
-        .code-terminal {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            border: 1px solid rgba(74, 222, 128, 0.3);
-        }
-        
-        .typing-cursor::after {
-            content: "|";
-            animation: blink 1s infinite;
-            color: #4ade80;
-        }
-
         .animate-on-scroll {
             opacity: 0;
             transform: translateY(20px);
@@ -89,41 +79,70 @@
             animation: bounce-soft 2s infinite;
         }
 
-        @keyframes bounce-soft {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
+        .ecosystem-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid transparent;
         }
 
-        .section-transition {
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        .ecosystem-card:hover {
+            border-color: rgba(74, 222, 128, 0.5);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
         }
 
-        .hover-glow:hover {
-            box-shadow: 0 0 30px rgba(74, 222, 128, 0.3);
-            transform: scale(1.02);
+        .creator-profile {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.9) 100%);
+            border: 1px solid rgba(74, 222, 128, 0.3);
         }
 
+        .social-link {
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px) scale(1.1);
+        }
+
+        .floating-element {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(2) {
+            animation-delay: -1.5s;
+        }
+
+        .floating-element:nth-child(3) {
+            animation-delay: -3s;
+        }
     </style>
 </head>
 <body class="bg-slate-900 text-white font-sans antialiased">
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/244928301450" target="_blank" class="whatsapp-float">
+        <div class="w-16 h-16 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all">
+            <i class="fab fa-whatsapp text-2xl text-white"></i>
+        </div>
+    </a>
+
     <!-- Navbar -->
     <nav class="glass fixed w-full top-0 z-50 border-b border-green-500/20">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center space-x-2">
-                <i class="fas fa-terminal text-2xl text-green-400"></i>
+                <i class="fas fa-code-branch text-2xl text-green-400"></i>
                 <span class="font-mono font-bold text-xl gradient-text">PyNerd</span>
             </div>
             <div class="hidden md:flex space-x-6">
                 <a href="#sobre" class="hover:text-green-400 transition-colors">Sobre</a>
-                <a href="#conteudo" class="hover:text-green-400 transition-colors">Conteúdo</a>
-                <a href="#depoimentos" class="hover:text-green-400 transition-colors">Depoimentos</a>
+                <a href="#ecossistema" class="hover:text-green-400 transition-colors">Ecossistema</a>
+                <a href="#pysensei" class="hover:text-green-400 transition-colors">PySensei</a>
+                <a href="#contato" class="hover:text-green-400 transition-colors">Contato</a>
             </div>
-            <div class="flex items-center space-x-4">
-                <a href="development.html" class="px-4 py-2 bg-slate-800 border border-cyan-500/30 rounded-lg font-semibold hover:bg-slate-700 transition-all text-sm">
-                    Development
+            <div class="flex items-center space-x-3">
+                <a href="academy.html" class="px-4 py-2 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 rounded-lg font-semibold transition-all text-sm">
+                    Academy
                 </a>
-                <a href="#inscricao" class="px-6 py-2 bg-gradient-to-r from-green-500 to-cyan-500 hover:from-green-600 hover:to-cyan-600 rounded-lg font-semibold transition-all transform hover:-translate-y-0.5">
-                    Inscreva-se
+                <a href="development.html" class="px-4 py-2 bg-gradient-to-r from-green-500 to-cyan-500 hover:from-green-600 hover:to-cyan-600 rounded-lg font-semibold transition-all text-sm">
+                    Development
                 </a>
             </div>
         </div>
@@ -132,57 +151,52 @@
     <!-- Hero Section -->
     <section class="min-h-screen flex items-center pt-20 relative overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"></div>
-        <div class="absolute top-20 right-10 w-72 h-72 bg-green-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-float"></div>
-        <div class="absolute bottom-20 left-10 w-72 h-72 bg-cyan-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-float" style="animation-delay: -1s;"></div>
+        
+        <!-- Floating Elements -->
+        <div class="absolute top-20 right-10 w-72 h-72 bg-green-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 floating-element"></div>
+        <div class="absolute bottom-20 left-10 w-72 h-72 bg-cyan-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 floating-element"></div>
+        <div class="absolute top-1/2 left-1/4 w-32 h-32 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 floating-element"></div>
         
         <div class="container mx-auto px-4 py-16 relative z-10">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="space-y-8">
-                    <h1 class="text-5xl md:text-6xl font-bold leading-tight">
-                        <span class="gradient-text">Domine Python</span><br>
-                        e entre no universo tech
-                    </h1>
-                    <p class="text-xl text-gray-300 leading-relaxed">
-                        Aprenda a linguagem mais versátil da programação através de projetos práticos e reais.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#inscricao" class="px-8 py-4 bg-gradient-to-r from-green-500 to-cyan-500 rounded-lg font-bold text-center transition-all transform hover:-translate-y-1 animate-pulse-glow">
-                            Comece Agora <i class="fas fa-rocket ml-2"></i>
-                        </a>
-                        <a href="#conteudo" class="px-8 py-4 bg-slate-800 border border-green-500/30 rounded-lg font-bold text-center hover:bg-slate-700 transition-all">
-                            Ver Conteúdo
-                        </a>
-                    </div>
-                    <div class="flex items-center space-x-4">
-                        <div class="flex -space-x-2">
-                            <div class="w-8 h-8 bg-gradient-to-r from-green-400 to-cyan-400 rounded-full border-2 border-slate-800"></div>
-                            <div class="w-8 h-8 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full border-2 border-slate-800"></div>
-                            <div class="w-8 h-8 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full border-2 border-slate-800"></div>
-                        </div>
-                        <p class="text-gray-300"><span class="text-green-400 font-semibold">+500 alunos</span> já programando</p>
-                    </div>
+            <div class="text-center max-w-5xl mx-auto">
+                <div class="inline-block bg-green-500/20 text-green-400 px-6 py-2 rounded-full text-sm font-mono mb-8 animate-pulse-glow">
+                    ECOSSISTEMA TECNOLÓGICO COMPLETO
                 </div>
                 
-                <!-- Code Terminal -->
-                <div class="code-terminal rounded-xl overflow-hidden shadow-2xl">
-                    <div class="flex items-center px-4 py-3 bg-slate-800 border-b border-green-500/20">
-                        <div class="flex space-x-2">
-                            <div class="w-3 h-3 bg-red-500 rounded-full"></div>
-                            <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                            <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                <h1 class="text-6xl md:text-7xl font-bold leading-tight mb-8">
+                    <span class="gradient-text">PyNerd</span><br>
+                    <span class="text-4xl md:text-5xl text-gray-300">Onde ideias viram realidade</span>
+                </h1>
+                
+                <p class="text-2xl text-gray-300 leading-relaxed mb-12 max-w-3xl mx-auto">
+                    Da educação ao desenvolvimento profissional. Seu parceiro completo no universo da programação Python em Angola.
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto mb-12">
+                    <a href="academy.html" class="group bg-gradient-to-r from-purple-500/20 to-blue-500/20 border border-purple-500/30 p-6 rounded-xl hover:border-purple-400 transition-all transform hover:-translate-y-2">
+                        <div class="flex items-center justify-center mb-4">
+                            <i class="fas fa-graduation-cap text-3xl text-purple-400 group-hover:text-purple-300"></i>
                         </div>
-                        <div class="ml-4 text-sm text-gray-400 font-mono">py-nerd.py</div>
+                        <h3 class="text-xl font-bold text-purple-400 mb-2">PyNerd Academy</h3>
+                        <p class="text-gray-300 text-sm">Aprenda Python do zero ao avançado</p>
+                    </a>
+                    
+                    <a href="development.html" class="group bg-gradient-to-r from-green-500/20 to-cyan-500/20 border border-green-500/30 p-6 rounded-xl hover:border-green-400 transition-all transform hover:-translate-y-2">
+                        <div class="flex items-center justify-center mb-4">
+                            <i class="fas fa-code text-3xl text-green-400 group-hover:text-green-300"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-green-400 mb-2">PyNerd Development</h3>
+                        <p class="text-gray-300 text-sm">Soluções sob medida para empresas</p>
+                    </a>
+                </div>
+                
+                <div class="flex items-center justify-center space-x-4 text-gray-400">
+                    <div class="flex -space-x-2">
+                        <div class="w-10 h-10 bg-gradient-to-r from-green-400 to-cyan-400 rounded-full border-2 border-slate-800"></div>
+                        <div class="w-10 h-10 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full border-2 border-slate-800"></div>
+                        <div class="w-10 h-10 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full border-2 border-slate-800"></div>
                     </div>
-                    <div class="p-6 font-mono text-sm space-y-2">
-                        <div class="text-gray-500"># Bem-vindo ao Py-Nerd!</div>
-                        <div><span class="text-purple-400">def</span> <span class="text-cyan-400">iniciar_jornada</span><span class="text-yellow-300">(</span><span class="text-orange-400">nome</span><span class="text-yellow-300">):</span></div>
-                        <div class="ml-4"><span class="text-green-400">print</span><span class="text-yellow-300">(</span><span class="text-orange-300">f"Olá, {nome}!"</span><span class="text-yellow-300">)</span></div>
-                        <div class="ml-4"><span class="text-purple-400">return</span> <span class="text-orange-300">"Sua jornada começou! 🚀"</span></div>
-                        <div class="mt-3"><span class="text-cyan-400">resultado</span> = <span class="text-cyan-400">iniciar_jornada</span><span class="text-yellow-300">(</span><span class="text-orange-300">"dev"</span><span class="text-yellow-300">)</span></div>
-                        <div class="text-green-400">> Olá, dev!</div>
-                        <div class="text-green-400">> Sua jornada começou! 🚀</div>
-                        <div class="typing-cursor"></div>
-                    </div>
+                    <span><span class="text-green-400 font-semibold">+500 alunos</span> e <span class="text-cyan-400 font-semibold">+50 projetos</span> entregues</span>
                 </div>
             </div>
         </div>
@@ -194,235 +208,135 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="sobre" class="py-24 bg-slate-800 relative animate-on-scroll">
+    <!-- About PyNerd -->
+    <section id="sobre" class="py-24 bg-slate-800 animate-on-scroll">
         <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="space-y-8">
-                    <h2 class="text-4xl font-bold">
-                        <span class="gradient-text">Por que Python</span> com a Py-Nerd?
-                    </h2>
-                    <div class="space-y-6">
-                        <div class="flex items-start space-x-4">
-                            <div class="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-code text-green-400"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-semibold mb-2">Programação Prática</h3>
-                                <p class="text-gray-300">Você programa desde o primeiro dia através de projetos reais e desafios práticos.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-4">
-                            <div class="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-rocket text-green-400"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-semibold mb-2">Evolução Acelerada</h3>
-                                <p class="text-gray-300">Metodologia focada em habilidades essenciais para o mercado tech.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-4">
-                            <div class="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-users text-green-400"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-semibold mb-2">Comunidade Ativa</h3>
-                                <p class="text-gray-300">Conecte-se com outros estudantes e compartilhe conhecimento.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="relative">
-                    <div class="aspect-video bg-gradient-to-br from-slate-700 to-slate-800 rounded-xl border border-green-500/20 flex items-center justify-center">
-                        <i class="fas fa-play text-6xl text-green-400 opacity-80"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Parteners/Tecnology Section -->
-    <section class="py-16 bg-slate-800 animate-on-scroll">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-2xl font-bold mb-8 gradient-text">Tecnologias que Você Vai Dominar</h2>
-            <div class="grid grid-cols-4 md:grid-cols-8 gap-6 items-center justify-center opacity-70">
-                <div class="text-center">
-                    <i class="fab fa-python text-3xl text-yellow-400 mb-2"></i>
-                    <p class="text-xs text-gray-400">Python</p>
-                </div>
-                <div class="text-center">
-                    <i class="fas fa-database text-3xl text-blue-400 mb-2"></i>
-                    <p class="text-xs text-gray-400">PostgreSQL</p>
-                </div>
-                <div class="text-center">
-                    <i class="fab fa-git-alt text-3xl text-orange-400 mb-2"></i>
-                    <p class="text-xs text-gray-400">Git</p>
-                </div>
-                <div class="text-center">
-                    <i class="fab fa-docker text-3xl text-blue-500 mb-2"></i>
-                    <p class="text-xs text-gray-400">Docker</p>
-                </div>
-                <div class="text-center">
-                    <i class="fab fa-aws text-3xl text-yellow-600 mb-2"></i>
-                    <p class="text-xs text-gray-400">AWS</p>
-                </div>
-                <div class="text-center">
-                    <i class="fab fa-js-square text-3xl text-yellow-300 mb-2"></i>
-                    <p class="text-xs text-gray-400">JavaScript</p>
-                </div>
-                <div class="text-center">
-                    <i class="fab fa-react text-3xl text-cyan-400 mb-2"></i>
-                    <p class="text-xs text-gray-400">React</p>
-                </div>
-                <div class="text-center">
-                    <i class="fas fa-chart-bar text-3xl text-green-400 mb-2"></i>
-                    <p class="text-xs text-gray-400">Data Science</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Content Section -->
-    <section id="conteudo" class="py-24 bg-slate-900 relative animate-on-scroll">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold mb-4 gradient-text">Conteúdo Programático</h2>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">Do básico ao avançado, com projetos práticos para seu portfólio.</p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <div class="bg-slate-800/50 p-6 rounded-xl border border-green-500/20 hover:border-green-500/40 transition-all hover:-translate-y-1">
-                    <div class="flex items-center mb-4">
-                        <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-slate-900 font-bold mr-3">1</div>
-                        <h3 class="text-xl font-bold text-green-400">Fundamentos</h3>
-                    </div>
-                    <ul class="space-y-2 text-gray-300">
-                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-2"></i> Sintaxe e estruturas</li>
-                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-2"></i> Tipos de dados</li>
-                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-2"></i> Controle de fluxo</li>
-                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-2"></i> Funções e módulos</li>
-                    </ul>
-                </div>
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl font-bold mb-6 gradient-text">O que é a PyNerd?</h2>
+                <p class="text-xl text-gray-300 mb-12 leading-relaxed">
+                    Somos um ecossistema tecnológico completo que conecta educação de qualidade com soluções profissionais de desenvolvimento. Nossa missão é democratizar o acesso ao conhecimento em programação Python e oferecer serviços de desenvolvimento de software de alta qualidade em Angola.
+                </p>
                 
-                <div class="bg-slate-800/50 p-6 rounded-xl border border-green-500/20 hover:border-green-500/40 transition-all hover:-translate-y-1">
-                    <div class="flex items-center mb-4">
-                        <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-slate-900 font-bold mr-3">2</div>
-                        <h3 class="text-xl font-bold text-green-400">Programação Orientada a Objetos</h3>
-                    </div>
-                    <ul class="space-y-2 text-gray-300">
-                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-2"></i> Classes e objetos</li>
-                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-2"></i> Herança e polimorfismo</li>
-                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-2"></i> Encapsulamento</li>
-                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-2"></i> Métodos especiais</li>
-                    </ul>
-                </div>
-                
-                <div class="bg-slate-800/50 p-6 rounded-xl border border-green-500/20 hover:border-green-500/40 transition-all hover:-translate-y-1">
-                    <div class="flex items-center mb-4">
-                        <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-slate-900 font-bold mr-3">3</div>
-                        <h3 class="text-xl font-bold text-green-400">Bibliotecas Essenciais</h3>
-                    </div>
-                    <ul class="space-y-2 text-gray-300">
-                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-2"></i> NumPy e Pandas</li>
-                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-2"></i> Requests e APIs</li>
-                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-2"></i> Matplotlib</li>
-                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-2"></i> BeautifulSoup</li>
-                    </ul>
-                </div>
-                
-                <div class="bg-slate-800/50 p-6 rounded-xl border border-green-500/20 hover:border-green-500/40 transition-all hover:-translate-y-1">
-                    <div class="flex items-center mb-4">
-                        <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-slate-900 font-bold mr-3">4</div>
-                        <h3 class="text-xl font-bold text-green-400">Projetos Práticos</h3>
-                    </div>
-                    <ul class="space-y-2 text-gray-300">
-                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-2"></i> Web scraping</li>
-                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-2"></i> Automação de tarefas</li>
-                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-2"></i> Análise de dados</li>
-                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-2"></i> APIs e integrações</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section id="depoimentos" class="py-24 bg-slate-800 animate-on-scroll">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold mb-4 gradient-text">Depoimentos</h2>
-                <p class="text-xl text-gray-300">Histórias reais de transformação profissional</p>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="glass p-6 rounded-xl border border-green-500/20 relative">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-gradient-to-r from-green-400 to-cyan-400 rounded-full flex items-center justify-center text-slate-900 font-bold mr-3">LS</div>
-                        <div>
-                            <h4 class="font-bold">Lucas Silva</h4>
-                            <p class="text-green-400 text-sm">Desenvolvedor Jr.</p>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-rocket text-3xl text-green-400"></i>
                         </div>
-                    </div>
-                    <p class="text-gray-300">"Em 3 meses saí do zero e consegui minha primeira vaga como desenvolvedor. O curso é incrível!"</p>
-                    <div class="mt-4 text-yellow-400">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="glass p-6 rounded-xl border border-green-500/20 relative">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full flex items-center justify-center text-slate-900 font-bold mr-3">AM</div>
-                        <div>
-                            <h4 class="font-bold">Ana Martins</h4>
-                            <p class="text-green-400 text-sm">Data Analyst</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-300">"Migrei do design para dados usando Python. A abordagem prática fez toda diferença no meu aprendizado."</p>
-                    <div class="mt-4 text-yellow-400">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="glass p-6 rounded-xl border border-green-500/20 relative">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full flex items-center justify-center text-slate-900 font-bold mr-3">PA</div>
-                        <div>
-                            <h4 class="font-bold">Pedro Almeida</h4>
-                            <p class="text-green-400 text-sm">Backend Developer</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-300">"O módulo de POO foi fundamental para entender conceitos avançados. Recomendo muito!"</p>
-                    <div class="mt-4 text-yellow-400">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PyNerd Development Action -->
-    <section class="py-16 bg-gradient-to-r from-slate-800 to-slate-900 animate-on-scroll">
-        <div class="container mx-auto px-4 text-center">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="text-3xl font-bold mb-6 gradient-text">Mais que um Curso, um Ecossistema Completo</h2>
-                <div class="grid md:grid-cols-2 gap-8 mt-12">
-                    <div class="glass p-6 rounded-xl border border-green-500/20 hover-glow">
-                        <div class="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-graduation-cap text-2xl text-green-400"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3 text-green-400">PyNerd Academy</h3>
-                        <p class="text-gray-300 mb-4">Aprenda Python do zero ao avançado com projetos práticos e mentoria especializada.</p>
-                        <p class="text-green-400 font-semibold">Você está aqui! 🎯</p>
+                        <h3 class="text-xl font-bold mb-3">Inovação</h3>
+                        <p class="text-gray-300">Tecnologias modernas e metodologias ágeis para resultados excepcionais</p>
                     </div>
                     
-                    <div class="glass p-6 rounded-xl border border-cyan-500/20 hover-glow">
-                        <div class="w-16 h-16 bg-cyan-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-code text-2xl text-cyan-400"></i>
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-cyan-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-heart text-3xl text-cyan-400"></i>
                         </div>
-                        <h3 class="text-xl font-bold mb-3 text-cyan-400">PyNerd Development</h3>
-                        <p class="text-gray-300 mb-4">Precisa de um sistema personalizado? Nossa equipe desenvolve soluções sob medida.</p>
-                        <a href="development.html" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-semibold">
-                            Conhecer Serviços <i class="fas fa-arrow-right ml-2"></i>
+                        <h3 class="text-xl font-bold mb-3">Paixão</h3>
+                        <p class="text-gray-300">Cada projeto é desenvolvido com dedicação e atenção aos detalhes</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-handshake text-3xl text-purple-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Compromisso</h3>
+                        <p class="text-gray-300">Resultados garantidos e relacionamentos duradouros com nossos clientes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ecosystem Section -->
+    <section id="ecossistema" class="py-24 bg-slate-900 animate-on-scroll">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 gradient-text">Nosso Ecossistema</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Duas divisões complementares que cobrem toda a jornada tecnológica
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                <!-- Academy Card -->
+                <div class="ecosystem-card bg-gradient-to-br from-purple-500/10 to-blue-500/10 p-8 rounded-2xl border border-purple-500/30">
+                    <div class="text-center mb-8">
+                        <div class="w-24 h-24 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-graduation-cap text-4xl text-purple-400"></i>
+                        </div>
+                        <h3 class="text-3xl font-bold text-purple-400 mb-4">PyNerd Academy</h3>
+                        <p class="text-gray-300 text-lg mb-6">
+                            Aprenda Python do zero ao avançado com metodologia prática e projetos reais
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-purple-400 mr-3"></i>
+                            <span>+50 horas de conteúdo prático</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-purple-400 mr-3"></i>
+                            <span>+20 projetos para portfólio</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-purple-400 mr-3"></i>
+                            <span>Comunidade exclusiva</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-purple-400 mr-3"></i>
+                            <span>Certificado reconhecido</span>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="mb-4">
+                            <span class="text-3xl font-bold text-purple-400">KZ 35.000</span>
+                            <span class="text-gray-400 text-sm ml-2">à vista</span>
+                        </div>
+                        <a href="academy.html" class="block px-8 py-4 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 rounded-lg font-bold transition-all transform hover:-translate-y-1">
+                            Começar a Aprender
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Development Card -->
+                <div class="ecosystem-card bg-gradient-to-br from-green-500/10 to-cyan-500/10 p-8 rounded-2xl border border-green-500/30">
+                    <div class="text-center mb-8">
+                        <div class="w-24 h-24 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-code text-4xl text-green-400"></i>
+                        </div>
+                        <h3 class="text-3xl font-bold text-green-400 mb-4">PyNerd Development</h3>
+                        <p class="text-gray-300 text-lg mb-6">
+                            Soluções profissionais de software sob medida para empresas angolanas
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-400 mr-3"></i>
+                            <span>Desenvolvimento Web & Mobile</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-400 mr-3"></i>
+                            <span>Automação & IA</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-400 mr-3"></i>
+                            <span>Sistemas ERP personalizados</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-400 mr-3"></i>
+                            <span>APIs & Integrações</span>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="mb-4">
+                            <span class="text-lg text-gray-400">A partir de</span>
+                            <span class="text-3xl font-bold text-green-400 block">KZ 80.000</span>
+                        </div>
+                        <a href="development.html" class="block px-8 py-4 bg-gradient-to-r from-green-500 to-cyan-500 hover:from-green-600 hover:to-cyan-600 rounded-lg font-bold transition-all transform hover:-translate-y-1">
+                            Solicitar Orçamento
                         </a>
                     </div>
                 </div>
@@ -430,58 +344,65 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section id="inscricao" class="py-24 bg-slate-900 relative animate-on-scroll">
-        <div class="absolute inset-0 bg-gradient-to-r from-green-500/5 to-cyan-500/5"></div>
-        <div class="container mx-auto px-4 relative">
-            <div class="max-w-4xl mx-auto glass rounded-2xl p-8 md:p-12 border border-green-500/30">
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="md:col-span-2">
-                        <div class="inline-block bg-green-500/20 text-green-400 px-4 py-1 rounded-full text-sm font-mono mb-4">OFERTA ESPECIAL</div>
-                        <h2 class="text-3xl md:text-4xl font-bold mb-4 gradient-text">Comece sua jornada Python hoje!</h2>
-                        <p class="text-gray-300 mb-6">Acesso vitalício + certificado + comunidade exclusiva</p>
-                        
-                        <div class="space-y-3 mb-6">
-                            <div class="flex items-center">
-                                <i class="fas fa-check-circle text-green-400 mr-3"></i>
-                                <span>+50 horas de conteúdo prático</span>
+    <!-- PySensei Section -->
+    <section id="pysensei" class="py-24 bg-slate-800 animate-on-scroll">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold mb-4 gradient-text">Conheça o PySensei</h2>
+                    <p class="text-xl text-gray-300">O Nerd por trás do ecossistema PyNerd</p>
+                </div>
+                
+                <div class="creator-profile p-8 md:p-12 rounded-2xl">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div class="text-center md:text-left">
+                            <div class="w-32 h-32 bg-gradient-to-r from-green-400 to-cyan-400 rounded-full flex items-center justify-center text-slate-900 font-bold text-4xl mx-auto md:mx-0 mb-6">
+                                AC
                             </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-check-circle text-green-400 mr-3"></i>
-                                <span>+20 projetos para portfólio</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-check-circle text-green-400 mr-3"></i>
-                                <span>Certificado reconhecido</span>
+                            <h3 class="text-3xl font-bold mb-2 gradient-text">Anderson Cafurica</h3>
+                            <p class="text-xl text-cyan-400 mb-4 font-mono">@Emicy963</p>
+                            <p class="text-gray-300 mb-6 leading-relaxed">
+                                Desenvolvedor Full-Stack apaixonado por Python e educação tecnológica. Criador da PyNerd com missão de transformar a realidade tech em Angola através da educação de qualidade e soluções inovadoras.
+                            </p>
+                            
+                            <div class="flex justify-center md:justify-start space-x-4">
+                                <a href="https://github.com/emicy963" target="_blank" class="social-link w-12 h-12 bg-slate-700 hover:bg-slate-600 rounded-full flex items-center justify-center">
+                                    <i class="fab fa-github text-xl"></i>
+                                </a>
+                                <a href="https://linkedin.com/in/anderson-cafurica" target="_blank" class="social-link w-12 h-12 bg-blue-600 hover:bg-blue-500 rounded-full flex items-center justify-center">
+                                    <i class="fab fa-linkedin text-xl"></i>
+                                </a>
+                                <a href="https://instagram.com/emicy963" target="_blank" class="social-link w-12 h-12 bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 rounded-full flex items-center justify-center">
+                                    <i class="fab fa-instagram text-xl"></i>
+                                </a>
+                                <a href="#" target="_blank" class="social-link w-12 h-12 bg-slate-700 hover:bg-slate-600 rounded-full flex items-center justify-center">
+                                    <i class="fab fa-twitter text-xl"></i>
+                                </a>
                             </div>
                         </div>
                         
-                        <div class="flex items-center space-x-4">
-                            <div>
-                                <span class="text-gray-400 line-through">KZ$ 60000</span>
-                                <div class="flex items-end">
-                                    <span class="text-3xl font-bold">KZ$ 35000</span>
-                                    <span class="text-gray-400 ml-2">à vista</span>
+                        <div class="space-y-6">
+                            <div class="bg-slate-900 p-6 rounded-xl border border-green-500/20">
+                                <h4 class="text-lg font-bold text-green-400 mb-3">Experiência</h4>
+                                <ul class="space-y-2 text-gray-300">
+                                    <li class="flex items-center"><i class="fas fa-code text-green-400 mr-3"></i> +5 anos em Python</li>
+                                    <!-- <li class="flex items-center"><i class="fas fa-graduation-cap text-green-400 mr-3"></i> +500 alunos formados</li> -->
+                                    <li class="flex items-center"><i class="fas fa-project-diagram text-green-400 mr-3"></i> +50 projetos finalizados</li>
+                                    <!-- <li class="flex items-center"><i class="fas fa-building text-green-400 mr-3"></i> +20 empresas atendidas</li> -->
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-slate-900 p-6 rounded-xl border border-cyan-500/20">
+                                <h4 class="text-lg font-bold text-cyan-400 mb-3">Especialidades</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-slate-700 px-3 py-1 rounded-full text-sm">Python</span>
+                                    <span class="bg-slate-700 px-3 py-1 rounded-full text-sm">Django</span>
+                                    <span class="bg-slate-700 px-3 py-1 rounded-full text-sm">FastAPI</span>
+                                    <span class="bg-slate-700 px-3 py-1 rounded-full text-sm">React</span>
+                                    <span class="bg-slate-700 px-3 py-1 rounded-full text-sm">PostgreSQL</span>
+                                    <span class="bg-slate-700 px-3 py-1 rounded-full text-sm">Docker</span>
                                 </div>
                             </div>
-                            <div class="bg-green-500/20 text-green-400 px-3 py-1 rounded-lg text-sm">40% OFF</div>
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <div class="bg-slate-800 p-6 rounded-xl border border-green-500/20">
-                            <h3 class="text-xl font-bold mb-4">Inscreva-se agora</h3>
-                            <form id="inscricaoForm" class="space-y-4">
-                                <input type="text" id="nome" placeholder="Nome completo" class="w-full bg-slate-700 border border-slate-600 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-green-500/50" required>
-                                <input type="email" id="email" placeholder="E-mail" class="w-full bg-slate-700 border border-slate-600 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-green-500/50" required>
-                                <input type="tel" id="whatsapp" placeholder="WhatsApp" class="w-full bg-slate-700 border border-slate-600 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-green-500/50" required>
-                                <button type="submit" class="w-full py-4 bg-gradient-to-r from-green-500 to-cyan-500 hover:from-green-600 hover:to-cyan-600 font-bold rounded-lg transition-all transform hover:-translate-y-1 animate-pulse-glow">
-                                    QUERO COMEÇAR AGORA!
-                                </button>
-                                <p class="text-center text-xs text-gray-400">
-                                    <i class="fas fa-lock mr-1"></i> Pagamento 100% seguro
-                                </p>
-                            </form>
                         </div>
                     </div>
                 </div>
@@ -489,62 +410,135 @@
         </div>
     </section>
 
-    <div id="successModal" class="fixed inset-0 bg-black/50 z-50 hidden items-center justify-center">
-        <div class="bg-slate-800 p-8 rounded-xl border border-green-500/30 max-w-md mx-4">
-            <div class="text-center">
-                <div class="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class="fas fa-check text-2xl text-green-400"></i>
+    <!-- Stats Section -->
+    <section class="py-16 bg-gradient-to-r from-slate-900 to-slate-800 animate-on-scroll">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <!-- <div>
+                    <div class="text-4xl font-bold text-purple-400 mb-2" data-count="500">0</div>
+                    <p class="text-gray-300">Alunos Formados</p>
+                </div> -->
+                <div>
+                    <div class="text-4xl font-bold text-green-400 mb-2" data-count="50">0</div>
+                    <p class="text-gray-300">Projetos Entregues</p>
                 </div>
-                <h3 class="text-xl font-bold mb-4 text-green-400">Inscrição Enviada!</h3>
-                <p class="text-gray-300 mb-6">Obrigado pelo interesse! Entraremos em contato via WhatsApp em breve com os detalhes do pagamento.</p>
-                <button onclick="closeModal()" class="px-6 py-3 bg-gradient-to-r from-green-500 to-cyan-500 rounded-lg font-semibold">
-                    Perfeito!
-                </button>
+                <!-- <div>
+                    <div class="text-4xl font-bold text-cyan-400 mb-2" data-count="20">0</div>
+                    <p class="text-gray-300">Empresas Atendidas</p>
+                </div> -->
+                <div>
+                    <div class="text-4xl font-bold text-yellow-400 mb-2" data-count="5">0</div>
+                    <p class="text-gray-300">Anos de Experiência</p>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Float Booton -->
-    <a href="https://wa.me/244928301450" target="_blank" class="whatsapp-float">
-        <div class="w-16 h-16 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all">
-            <i class="fab fa-whatsapp text-2xl text-white"></i>
+    <!-- Contact Section -->
+    <section id="contato" class="py-24 bg-slate-800 animate-on-scroll">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto glass rounded-2xl p-8 md:p-12 border border-green-500/30">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 gradient-text">Vamos Conversar?</h2>
+                    <p class="text-gray-300">Seja um PyNerd ou um PyClient, estamos aqui para ajudar</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="space-y-6">
+                        <div class="text-center p-6 bg-slate-900 rounded-xl border border-purple-500/20">
+                            <i class="fas fa-graduation-cap text-3xl text-purple-400 mb-3"></i>
+                            <h4 class="text-xl font-bold text-purple-400 mb-2">Quer PyNerd?</h4>
+                            <p class="text-gray-300 mb-4">Comece sua jornada Python hoje mesmo</p>
+                            <a href="academy.html" class="inline-block px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg font-semibold hover:from-purple-600 hover:to-blue-600 transition-all">
+                                Ver Academy
+                            </a>
+                        </div>
+                        
+                        <div class="text-center p-6 bg-slate-900 rounded-xl border border-green-500/20">
+                            <i class="fas fa-code text-3xl text-green-400 mb-3"></i>
+                            <h4 class="text-xl font-bold text-green-400 mb-2">Precisa de um Sistema?</h4>
+                            <p class="text-gray-300 mb-4">Soluções sob medida para sua empresa</p>
+                            <a href="development.html" class="inline-block px-6 py-3 bg-gradient-to-r from-green-500 to-cyan-500 rounded-lg font-semibold hover:from-green-600 hover:to-cyan-600 transition-all">
+                                Ver Development
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-green-400">Entre em Contato</h4>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <i class="fab fa-whatsapp text-green-400 mr-4 text-xl"></i>
+                                <div>
+                                    <p class="font-semibold">WhatsApp</p>
+                                    <p class="text-gray-300">contato@pynerd.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-map-marker-alt text-green-400 mr-4 text-xl"></i>
+                                <div>
+                                    <p class="font-semibold">Localização</p>
+                                    <p class="text-gray-300">Huambo, Angola</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <a href="https://wa.me/244928301450" class="w-full block px-8 py-4 bg-green-500 hover:bg-green-600 rounded-lg font-bold text-center transition-all transform hover:-translate-y-1">
+                                <i class="fab fa-whatsapp mr-2"></i> Falar no WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </a>
+    </section>
 
     <!-- Footer -->
     <footer class="bg-slate-900 border-t border-green-500/20 py-12">
         <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-3 gap-8 mb-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
                 <div>
                     <div class="flex items-center space-x-2 mb-4">
-                        <i class="fas fa-terminal text-2xl text-green-400"></i>
-                        <span class="font-mono font-bold text-xl gradient-text">Py-Nerd</span>
+                        <i class="fas fa-code-branch text-2xl text-green-400"></i>
+                        <span class="font-mono font-bold text-xl gradient-text">PyNerd</span>
                     </div>
-                    <p class="text-gray-400 mb-4">Transforme sua carreira através da programação Python.</p>
+                    <p class="text-gray-400 mb-4">Ecossistema completo de tecnologia e educação.</p>
                     <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-green-400 transition-colors"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-green-400 transition-colors"><i class="fab fa-youtube"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-green-400 transition-colors"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://instagram.com/emicy963" class="text-gray-400 hover:text-green-400 transition-colors"><i class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com/in/anderson-cafurica" class="text-gray-400 hover:text-green-400 transition-colors"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/emicy963" class="text-gray-400 hover:text-green-400 transition-colors"><i class="fab fa-github"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-green-400 transition-colors"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
                 <div>
-                    <h3 class="font-bold mb-4">Links</h3>
+                    <h3 class="font-bold mb-4">Academy</h3>
                     <div class="space-y-2">
-                        <a href="#sobre" class="block text-gray-400 hover:text-green-400 transition-colors">Sobre</a>
-                        <a href="#conteudo" class="block text-gray-400 hover:text-green-400 transition-colors">Conteúdo</a>
-                        <a href="#depoimentos" class="block text-gray-400 hover:text-green-400 transition-colors">Depoimentos</a>
+                        <a href="academy.html#sobre" class="block text-gray-400 hover:text-green-400 transition-colors">Sobre o Curso</a>
+                        <a href="academy.html#conteudo" class="block text-gray-400 hover:text-green-400 transition-colors">Conteúdo</a>
+                        <a href="academy.html#depoimentos" class="block text-gray-400 hover:text-green-400 transition-colors">Depoimentos</a>
+                        <a href="academy.html#inscricao" class="block text-gray-400 hover:text-green-400 transition-colors">Inscrições</a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-bold mb-4">Development</h3>
+                    <div class="space-y-2">
+                        <a href="development.html#servicos" class="block text-gray-400 hover:text-green-400 transition-colors">Serviços</a>
+                        <a href="development.html#tecnologias" class="block text-gray-400 hover:text-green-400 transition-colors">Tecnologias</a>
+                        <a href="development.html#contato" class="block text-gray-400 hover:text-green-400 transition-colors">Orçamento</a>
                     </div>
                 </div>
                 <div>
                     <h3 class="font-bold mb-4">Contato</h3>
                     <div class="space-y-2 text-gray-400">
                         <p><i class="fas fa-envelope text-green-400 mr-2"></i> contato@pynerd.com</p>
-                        <p><i class="fab fa-whatsapp text-green-400 mr-2"></i> 928 301 450</p>
+                        <p><i class="fab fa-whatsapp text-green-400 mr-2"></i> +244 928 301 450</p>
+                        <p><i class="fas fa-map-marker-alt text-green-400 mr-2"></i> Luanda, Angola</p>
                     </div>
                 </div>
             </div>
             <div class="border-t border-slate-700 pt-6 text-center text-gray-500">
-                <p>© 2025 Py-Nerd. Todos os direitos reservados.</p>
+                <p>© 2025 PyNerd. Todos os direitos reservados. Criado por Anderson Cafurica (@Emicy963)</p>
             </div>
         </div>
     </footer>
@@ -564,7 +558,7 @@
             observer.observe(el);
         });
 
-        // Smooth scrolling for navigation links
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -578,115 +572,7 @@
             });
         });
 
-        // Add Modal Function
-        function showModal() {
-            document.getElementById('successModal').classList.remove('hidden');
-            document.getElementById('successModal').classList.add('flex');
-        }
-
-        function closeModal() {
-            document.getElementById('successModal').classList.add('hidden');
-            document.getElementById('successModal').classList.remove('flex');
-        }
-
-        // Chance the form handler to modal
-        document.getElementById('inscricaoForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const nome = document.getElementById('nome').value;
-            const email = document.getElementById('email').value;
-            const whatsapp = document.getElementById('whatsapp').value;
-            
-            if (!nome || !email || !whatsapp) {
-                alert('Por favor, preencha todos os campos!');
-                return;
-            }
-            
-            const button = e.target.querySelector('button[type="submit"]');
-            const originalText = button.innerHTML;
-            button.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Processando...';
-            button.disabled = true;
-            
-            setTimeout(() => {
-                showModal(); // Usar modal em vez de alert
-                button.innerHTML = originalText;
-                button.disabled = false;
-                e.target.reset();
-            }, 2000);
-        });
-
-        // Mobile menu toggle (if needed)
-        const mobileMenuToggle = document.createElement('button');
-        mobileMenuToggle.className = 'md:hidden text-white';
-        mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-        
-        // Add mobile menu functionality
-        let mobileMenuOpen = false;
-        mobileMenuToggle.addEventListener('click', function() {
-            const navLinks = document.querySelector('nav .hidden.md\\:flex');
-            if (navLinks) {
-                if (mobileMenuOpen) {
-                    navLinks.classList.add('hidden');
-                    mobileMenuOpen = false;
-                } else {
-                    navLinks.classList.remove('hidden');
-                    navLinks.classList.add('flex', 'flex-col', 'absolute', 'top-full', 'left-0', 'w-full', 'bg-slate-900', 'p-4', 'space-y-4');
-                    mobileMenuOpen = true;
-                }
-            }
-        });
-
-        // Add some interactive effects
-        document.querySelectorAll('.hover\\:-translate-y-1').forEach(el => {
-            el.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-4px)';
-                this.style.boxShadow = '0 10px 25px rgba(0,0,0,0.5)';
-            });
-            
-            el.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-                this.style.boxShadow = 'none';
-            });
-        });
-
-        // Typing animation for the terminal
-        function typeWriter(element, text, speed = 100) {
-            let i = 0;
-            element.innerHTML = '';
-            
-            function type() {
-                if (i < text.length) {
-                    element.innerHTML += text.charAt(i);
-                    i++;
-                    setTimeout(type, speed);
-                }
-            }
-            
-            type();
-        }
-
-        // Initialize typing animation when page loads
-        window.addEventListener('load', function() {
-            const typingElement = document.querySelector('.typing-cursor');
-            if (typingElement) {
-                setTimeout(() => {
-                    typeWriter(typingElement, 'python pynerd.py', 150);
-                }, 3000);
-            }
-        });
-
-        // Add parallax effect to floating elements
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const parallaxElements = document.querySelectorAll('.animate-float');
-            
-            parallaxElements.forEach((el, index) => {
-                const speed = 0.5 + (index * 0.1);
-                el.style.transform = `translateY(${scrolled * speed}px)`;
-            });
-        });
-
-        // Add dynamic counter for student count
+        // Counter animation
         function animateCounter(element, target, duration = 2000) {
             let start = 0;
             const increment = target / (duration / 16);
@@ -694,60 +580,92 @@
             function updateCounter() {
                 start += increment;
                 if (start < target) {
-                    element.textContent = `+${Math.floor(start)} alunos`;
+                    element.textContent = Math.floor(start);
                     requestAnimationFrame(updateCounter);
                 } else {
-                    element.textContent = `+${target} alunos`;
+                    element.textContent = target;
                 }
             }
             
             updateCounter();
         }
 
-        // Trigger counter animation when element is visible
-        const studentCounter = document.querySelector('.text-green-400.font-semibold');
-        if (studentCounter) {
-            const counterObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        animateCounter(studentCounter, 500);
-                        counterObserver.unobserve(entry.target);
-                    }
-                });
+        // Trigger counters animation
+        const counters = document.querySelectorAll('[data-count]');
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = parseInt(entry.target.dataset.count);
+                    animateCounter(entry.target, target);
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        counters.forEach(counter => {
+            counterObserver.observe(counter);
+        });
+
+        // Mobile menu
+        const createMobileMenu = () => {
+            const navbar = document.querySelector('nav .container');
+            const mobileToggle = document.createElement('button');
+            mobileToggle.className = 'md:hidden text-white p-2';
+            mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            
+            const navLinks = document.querySelector('nav .hidden.md\\:flex');
+            
+            mobileToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('hidden');
+                navLinks.classList.toggle('flex');
+                navLinks.classList.toggle('flex-col');
+                navLinks.classList.toggle('absolute');
+                navLinks.classList.toggle('top-full');
+                navLinks.classList.toggle('left-0');
+                navLinks.classList.toggle('w-full');
+                navLinks.classList.toggle('bg-slate-900');
+                navLinks.classList.toggle('p-4');
+                navLinks.classList.toggle('space-y-4');
             });
             
-            counterObserver.observe(studentCounter);
-        }
-
-        // WhatsApp float button animation
-        const whatsappButton = document.querySelector('.whatsapp-float');
-        if (whatsappButton) {
-            setInterval(() => {
-                whatsappButton.style.animation = 'none';
-                setTimeout(() => {
-                    whatsappButton.style.animation = 'bounce-soft 2s infinite';
-                }, 10);
-            }, 5000);
-        }
+            navbar.appendChild(mobileToggle);
+        };
 
         // Enhanced hover effects
-        document.querySelectorAll('.hover-glow').forEach(card => {
+        document.querySelectorAll('.ecosystem-card').forEach(card => {
             card.addEventListener('mouseenter', function() {
-                this.style.transform = 'scale(1.02) translateY(-2px)';
-                this.style.boxShadow = '0 0 30px rgba(74, 222, 128, 0.3)';
+                this.style.transform = 'translateY(-10px) scale(1.03)';
             });
             
             card.addEventListener('mouseleave', function() {
-                this.style.transform = 'scale(1) translateY(0)';
-                this.style.boxShadow = 'none';
+                this.style.transform = 'translateY(0) scale(1)';
             });
         });
 
-        // Smooth transitions between sections
-        const sections = document.querySelectorAll('section');
-        sections.forEach(section => {
-            section.classList.add('section-transition');
+        // Social links hover effects
+        document.querySelectorAll('.social-link').forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-4px) scale(1.15)';
+            });
+            
+            link.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
         });
+
+        // Parallax effects
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.floating-element');
+            
+            parallaxElements.forEach((el, index) => {
+                const speed = 0.3 + (index * 0.1);
+                el.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // Initialize mobile menu
+        createMobileMenu();
     </script>
 </body>
 </html>
