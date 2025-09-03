@@ -222,6 +222,63 @@
         </div>
      </section>
 
+     <!-- Ecosystem Section -->
+    <section id="ecossistema" class="py-24 bg-slate-900 animate-on-scroll">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 gradient-text">Nosso Ecossistema</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Duas divisões complementares que cobrem toda a jornada tecnológica
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                <!-- Academy Card -->
+                <div class="ecosystem-card bg-gradient-to-br from-purple-500/10 to-blue-500/10 p-8 rounded-2xl border border-purple-500/30">
+                    <div class="text-center mb-8">
+                        <div class="w-24 h-24 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-graduation-cap text-4xl text-purple-400"></i>
+                        </div>
+                        <h3 class="text-3xl font-bold text-purple-400 mb-4">PyNerd Academy</h3>
+                        <p class="text-gray-300 text-lg mb-6">
+                            Aprenda Python do zero ao avançado com metodologia prática e projetos reais
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-purple-400 mr-3"></i>
+                            <span>+50 horas de conteúdo prático</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-purple-400 mr-3"></i>
+                            <span>+20 projetos para portfólio</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-purple-400 mr-3"></i>
+                            <span>Comunidade exclusiva</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-purple-400 mr-3"></i>
+                            <span>Certificado reconhecido</span>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="mb-4">
+                            <span class="text-3xl font-bold text-purple-400">KZ 35.000</span>
+                            <span class="text-gray-400 text-sm ml-2">à vista</span>
+                        </div>
+                        <a href="academy.html" class="block px-8 py-4 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 rounded-lg font-bold transition-all transform hover:-translate-y-1">
+                            Começar a Aprender
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
      <script>
         // Scroll animations
         const observeElements = document.querySelectorAll(".animate-on-scroll");
@@ -245,7 +302,7 @@
                 if (target) {
                     target.scrollIntoView({
                         behavior: "smooth",
-                        block: start
+                        block: "start"
                     });
                 }
             });
