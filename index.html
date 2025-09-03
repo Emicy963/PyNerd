@@ -59,6 +59,17 @@
             background: rgba(15, 23, 42, 0.8);
         }
 
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         .whatsapp-float {
             position: fixed;
             bottom: 30px;
@@ -174,7 +185,7 @@
      </section>
 
     <!-- About PyNerd -->
-     <section id="about" class="py-24 bg-slate-800">
+     <section id="about" class="py-24 bg-slate-800 animate-on-scroll">
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto text-center">
                 <h2 class="text-4xl font-bold mb-6 gradient-text">O que é PyNerd?</h2>
