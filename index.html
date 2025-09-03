@@ -1,4 +1,5 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,29 +25,29 @@
         }
     </script>
     <style>
-        @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Monaco&display=swap");
-
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Monaco&display=swap');
+        
         @keyframes pulseGlow {
             0% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7); }
             70% { box-shadow: 0 0 0 12px rgba(74, 222, 128, 0); }
             100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
         }
-
+        
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
         }
-
-        @keyframes slideUp{
+        
+        @keyframes slideUp {
             from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
+        
         @keyframes bounceSoft {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-5px); }
         }
-
+        
         .gradient-text { 
             background: linear-gradient(to right, #4ade80, #22d3ee);
             -webkit-background-clip: text;
@@ -115,7 +116,7 @@
         }
     </style>
 </head>
-<body>
+<body class="bg-slate-900 text-white font-sans antialiased">
     <!-- WhatsApp Float Button -->
     <a href="https://wa.me/244928301450" target="_blank" class="whatsapp-float">
         <div class="w-16 h-16 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all">
@@ -131,10 +132,10 @@
                 <span class="font-mono font-bold text-xl gradient-text">PyNerd</span>
             </div>
             <div class="hidden md:flex space-x-6">
-                <a href="#" class="hover:text-green-400 transition-colors">Sobre</a>
-                <a href="#" class="hover:text-green-400 transition-colors">Ecossistema</a>
-                <a href="#" class="hover:text-green-400 transition-colors">PySensei</a>
-                <a href="#" class="hover:text-green-400 transition-colors">Contato</a>
+                <a href="#sobre" class="hover:text-green-400 transition-colors">Sobre</a>
+                <a href="#ecossistema" class="hover:text-green-400 transition-colors">Ecossistema</a>
+                <a href="#pysensei" class="hover:text-green-400 transition-colors">PySensei</a>
+                <a href="#contato" class="hover:text-green-400 transition-colors">Contato</a>
             </div>
             <div class="flex items-center space-x-3">
                 <a href="academy.html" class="px-4 py-2 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 rounded-lg font-semibold transition-all text-sm">
@@ -148,94 +149,93 @@
     </nav>
 
     <!-- Hero Section -->
-     <section class="min-h-screen flex items-center pt-20 relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-
-            <!-- Floating Elements -->
-            <div class="absolute top-20 right-10 w-72 h-72 bg-green-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 floating-element"></div>
-            <div class="absolute bottom-20 left-10 w-72 h-72 bg-cyan-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 floating-element"></div>
-            <div class="absolute top-1/2 left-1/4 w-32 h-32 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 floating-element"></div>
-
-            <div class="container mx-auto px-4 py-16 relative z-10">
-                <div class="text-center max-w-5xl mx-auto">
-                    <div class="inline-block bg-green-500/20 text-green-400 px-6 py-2 rounded-full text-sm font-mono mb-8 animate-pulse-glow">
-                        ECOSSISTEMA TECNOLÓGICO COMPLETO
-                    </div>
-
-                    <h1 class="text-6xl md:text-7xl font-bold leading-tight mb-8">
-                        <span class="gradient-text">PyNerd</span>
-                        <span class="text-4xl md:text-5xl text-gray-300">Onde ideias viram realidade</span>
-                    </h1>
-
-                    <p class="text-2xl text-gray-300 leading-relaxed mb-12 max-w-3xl mx-auto">
-                        Da educação ao desenvolvimento profissional. Seu parceiro completo no universo da programação Python em Angola.
-                    </p>
-
-                    <div class="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto mb-12">
-                        <a href="academy.html" class="group bg-gradient-to-r from-purple-500/20 to-blue-500/20 border border-purple-500/30 p-6 rounded-xl hover:border-purple-400 transition-all transform hover:-translate-y-2">
-                            <div class="flex items-center justify-center mb-4">
-                                <i class="fas fa-graduation-cap text-3xl text-purple-400 group-hover:text-purple-300"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-purple-400 mb-2">PyNerd Academy</h3>
-                            <p class="text-gray-300 text-sm">Aprenda Python do zero ao avançado</p>
-                        </a>
-
-                        <a href="development.html" class="group bg-gradient-to-r from-green-500/20 to-cyan-500/20 border border-green-500/30 p-6 rounded-xl hover:border-green-400 transition-all transform hover:-translate-y-2">
-                            <div class="flex items-center justify-center mb-4">
-                                <i class="fas fa-code text-3xl text-green-400 group-hover:text-green-300"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-green-400 mb-2">PyNerd Development</h3>
-                            <p class="text-gray-300 text-sm">Soluções sob medida para empresas</p>
-                        </a>
-                    </div>
-
-                    <div class="flex items-center justify-center space-x-4 text-gray-400">
-                        <div class="flex -space-x-2">
-                            <div class="w-10 h-10 bg-gradient-to-r from-green-400 to-cyan-400 rounded-full border-2 border-slate-800"></div>
-                            <div class="w-10 h-10 bg-gradient-to-r from-purple-400 to-cyan-400 rounded-full border-2 border-slate-800"></div>
-                            <div class="w-10 h-10 bg-gradient-to-r from-yellow-400 to-cyan-400 rounded-full border-2 border-slate-800"></div>
+    <section class="min-h-screen flex items-center pt-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"></div>
+        
+        <!-- Floating Elements -->
+        <div class="absolute top-20 right-10 w-72 h-72 bg-green-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 floating-element"></div>
+        <div class="absolute bottom-20 left-10 w-72 h-72 bg-cyan-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 floating-element"></div>
+        <div class="absolute top-1/2 left-1/4 w-32 h-32 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 floating-element"></div>
+        
+        <div class="container mx-auto px-4 py-16 relative z-10">
+            <div class="text-center max-w-5xl mx-auto">
+                <div class="inline-block bg-green-500/20 text-green-400 px-6 py-2 rounded-full text-sm font-mono mb-8 animate-pulse-glow">
+                    ECOSSISTEMA TECNOLÓGICO COMPLETO
+                </div>
+                
+                <h1 class="text-6xl md:text-7xl font-bold leading-tight mb-8">
+                    <span class="gradient-text">PyNerd</span><br>
+                    <span class="text-4xl md:text-5xl text-gray-300">Onde ideias viram realidade</span>
+                </h1>
+                
+                <p class="text-2xl text-gray-300 leading-relaxed mb-12 max-w-3xl mx-auto">
+                    Da educação ao desenvolvimento profissional. Seu parceiro completo no universo da programação Python em Angola.
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto mb-12">
+                    <a href="academy.html" class="group bg-gradient-to-r from-purple-500/20 to-blue-500/20 border border-purple-500/30 p-6 rounded-xl hover:border-purple-400 transition-all transform hover:-translate-y-2">
+                        <div class="flex items-center justify-center mb-4">
+                            <i class="fas fa-graduation-cap text-3xl text-purple-400 group-hover:text-purple-300"></i>
                         </div>
-                        <span><span class="text-green-400 font-semibold">+500 alunos</span> e <span class="text-cyan-400 font-semibold">+50 projetos</span> finalizados</span>
+                        <h3 class="text-xl font-bold text-purple-400 mb-2">PyNerd Academy</h3>
+                        <p class="text-gray-300 text-sm">Aprenda Python do zero ao avançado</p>
+                    </a>
+                    
+                    <a href="development.html" class="group bg-gradient-to-r from-green-500/20 to-cyan-500/20 border border-green-500/30 p-6 rounded-xl hover:border-green-400 transition-all transform hover:-translate-y-2">
+                        <div class="flex items-center justify-center mb-4">
+                            <i class="fas fa-code text-3xl text-green-400 group-hover:text-green-300"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-green-400 mb-2">PyNerd Development</h3>
+                        <p class="text-gray-300 text-sm">Soluções sob medida para empresas</p>
+                    </a>
+                </div>
+                
+                <div class="flex items-center justify-center space-x-4 text-gray-400">
+                    <div class="flex -space-x-2">
+                        <div class="w-10 h-10 bg-gradient-to-r from-green-400 to-cyan-400 rounded-full border-2 border-slate-800"></div>
+                        <div class="w-10 h-10 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full border-2 border-slate-800"></div>
+                        <div class="w-10 h-10 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full border-2 border-slate-800"></div>
                     </div>
+                    <span><span class="text-green-400 font-semibold">+500 alunos</span> e <span class="text-cyan-400 font-semibold">+50 projetos</span> entregues</span>
                 </div>
             </div>
         </div>
-
+        
         <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center">
             <div class="animate-bounce text-green-400 text-2xl">
                 <i class="fas fa-chevron-down"></i>
             </div>
         </div>
-     </section>
+    </section>
 
     <!-- About PyNerd -->
-     <section id="about" class="py-24 bg-slate-800 animate-on-scroll">
+    <section id="sobre" class="py-24 bg-slate-800 animate-on-scroll">
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-4xl font-bold mb-6 gradient-text">O que é PyNerd?</h2>
+                <h2 class="text-4xl font-bold mb-6 gradient-text">O que é a PyNerd?</h2>
                 <p class="text-xl text-gray-300 mb-12 leading-relaxed">
-                    PyNerd é um ecossistema tecnológico completo que conecta educação de qualidade com soluções profissionais de desenvolvimento. Nossa missão é democratizar o acesso ao conhecimento em programação Python e oferecer serviços de desenvolvimento de software de alta qualidade em Angola.
+                    Somos um ecossistema tecnológico completo que conecta educação de qualidade com soluções profissionais de desenvolvimento. Nossa missão é democratizar o acesso ao conhecimento em programação Python e oferecer serviços de desenvolvimento de software de alta qualidade em Angola.
                 </p>
-
+                
                 <div class="grid md:grid-cols-3 gap-8">
                     <div class="text-center">
-                        <div>
+                        <div class="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
                             <i class="fas fa-rocket text-3xl text-green-400"></i>
                         </div>
                         <h3 class="text-xl font-bold mb-3">Inovação</h3>
                         <p class="text-gray-300">Tecnologias modernas e metodologias ágeis para resultados excepcionais</p>
                     </div>
-
+                    
                     <div class="text-center">
-                        <div>
-                            <i class="fas fa-heart text-3xl text-cyan-400"></i></i>
+                        <div class="w-20 h-20 bg-cyan-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-heart text-3xl text-cyan-400"></i>
                         </div>
                         <h3 class="text-xl font-bold mb-3">Paixão</h3>
                         <p class="text-gray-300">Cada projeto é desenvolvido com dedicação e atenção aos detalhes</p>
                     </div>
-
+                    
                     <div class="text-center">
-                        <div>
+                        <div class="w-20 h-20 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
                             <i class="fas fa-handshake text-3xl text-purple-400"></i>
                         </div>
                         <h3 class="text-xl font-bold mb-3">Compromisso</h3>
@@ -244,9 +244,9 @@
                 </div>
             </div>
         </div>
-     </section>
+    </section>
 
-     <!-- Ecosystem Section -->
+    <!-- Ecosystem Section -->
     <section id="ecossistema" class="py-24 bg-slate-900 animate-on-scroll">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
@@ -376,7 +376,7 @@
                                     <i class="fab fa-instagram text-xl"></i>
                                 </a>
                                 <a href="#" target="_blank" class="social-link w-12 h-12 bg-slate-700 hover:bg-slate-600 rounded-full flex items-center justify-center">
-                                    <i class="fab fa-twitter  text-xl"></i>
+                                    <i class="fab fa-twitter text-xl"></i>
                                 </a>
                             </div>
                         </div>
@@ -387,7 +387,7 @@
                                 <ul class="space-y-2 text-gray-300">
                                     <li class="flex items-center"><i class="fas fa-code text-green-400 mr-3"></i> +5 anos em Python</li>
                                     <!-- <li class="flex items-center"><i class="fas fa-graduation-cap text-green-400 mr-3"></i> +500 alunos formados</li> -->
-                                    <li class="flex items-center"><i class="fas fa-project-diagram text-green-400 mr-3"></i> +50 projetos feitos</li>
+                                    <li class="flex items-center"><i class="fas fa-project-diagram text-green-400 mr-3"></i> +50 projetos finalizados</li>
                                     <!-- <li class="flex items-center"><i class="fas fa-building text-green-400 mr-3"></i> +20 empresas atendidas</li> -->
                                 </ul>
                             </div>
@@ -447,7 +447,7 @@
                     <div class="space-y-6">
                         <div class="text-center p-6 bg-slate-900 rounded-xl border border-purple-500/20">
                             <i class="fas fa-graduation-cap text-3xl text-purple-400 mb-3"></i>
-                            <h4 class="text-xl font-bold text-purple-400 mb-2">Quer ser um PyNerd?</h4>
+                            <h4 class="text-xl font-bold text-purple-400 mb-2">Quer PyNerd?</h4>
                             <p class="text-gray-300 mb-4">Comece sua jornada Python hoje mesmo</p>
                             <a href="academy.html" class="inline-block px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg font-semibold hover:from-purple-600 hover:to-blue-600 transition-all">
                                 Ver Academy
@@ -543,13 +543,13 @@
         </div>
     </footer>
 
-     <script>
+    <script>
         // Scroll animations
-        const observeElements = document.querySelectorAll(".animate-on-scroll");
+        const observeElements = document.querySelectorAll('.animate-on-scroll');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add("visible");
+                    entry.target.classList.add('visible');
                 }
             });
         }, { threshold: 0.1 });
@@ -559,14 +559,14 @@
         });
 
         // Smooth scrolling
-        document.querySelectorAll("a[href^='#']").forEach(anchor => {
-            anchor.addEventListener("click", function (e) {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute("href"));
+                const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     target.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start"
+                        behavior: 'smooth',
+                        block: 'start'
                     });
                 }
             });
@@ -576,7 +576,7 @@
         function animateCounter(element, target, duration = 2000) {
             let start = 0;
             const increment = target / (duration / 16);
-                
+            
             function updateCounter() {
                 start += increment;
                 if (start < target) {
@@ -586,12 +586,12 @@
                     element.textContent = target;
                 }
             }
-                
+            
             updateCounter();
         }
 
         // Trigger counters animation
-        const counters = document.querySelectorAll("[data-count]")
+        const counters = document.querySelectorAll('[data-count]');
         const counterObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
