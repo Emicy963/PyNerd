@@ -14,7 +14,15 @@
     },
     {
       "source": "/academy",
-      "destination": "/index.html"
+      "destination": "/academy.html"
+    },
+    {
+      "source": "/curso",
+      "destination": "/academy.html"
+    },
+    {
+      "source": "/aprender",
+      "destination": "/academy.html"
     },
     {
       "source": "/development",
@@ -22,6 +30,10 @@
     },
     {
       "source": "/dev",
+      "destination": "/development.html"
+    },
+    {
+      "source": "/servicos",
       "destination": "/development.html"
     }
   ],
